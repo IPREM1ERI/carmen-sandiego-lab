@@ -4,7 +4,8 @@
 -- populated country in Southern Europe, and we'll start looking for her there.
  
 -- TODO: Write SQL query here
-
+SELECT population, name, region FROM country ORDER BY region, population;
+--VATICAN CITY
 
 -- Clue #2: Now that we're here, we have insight that Carmen was seen attending 
 -- language classes in this country's officially recognized language. Check our 
@@ -13,12 +14,14 @@
 
 -- TODO: Write SQL query here
 
-
+SELECT countrycode, "language", isofficial FROM countrylanguage ORDER BY countrycode;
+--ITALIAN
 -- Clue #3: We have new news on the classes Carmen attended – our gumshoes tell us she's moved on to a different country, a country where people speak only the language she was learning. Find out which nearby country speaks nothing but that language.
 
 -- TODO: Write SQL query here
 
-
+SELECT countrycode, "language", isofficial FROM countrylanguage ORDER BY countrycode, isofficial;
+--SMR SAN MARINO
 -- Clue #4: We're booking the first flight out – maybe we've actually got a 
 -- chance to catch her this time. There are only two cities she could be flying 
 -- to in the country. One is named the same as the country – that would be too 
@@ -26,7 +29,8 @@
 -- that country she might be flying to.
 
 -- TODO: Write SQL query here
-
+SELECT countrycode, name FROM city ORDER BY countrycode;
+--SERRAVALLE
 
 -- Clue #5: Oh no, she pulled a switch – there are two cities with very similar 
 -- names, but in totally different parts of the globe! She's headed to South 
@@ -35,16 +39,18 @@
 -- search for what country it's in. Hurry!
 
 -- TODO: Write SQL query here
-
-
+SELECT countrycode, name FROM city ORDER BY name;
+--Serra in Brazil
 -- Clue #6: We're close! Our South American agent says she just got a taxi at
 -- the airport, and is headed towardsthe capital! Look up the country's 
 -- capital, and get there pronto! Send us the name of where you're headed and 
 -- we'll follow right behind you!
 
 -- TODO: Write SQL query here
-
-
+SELECT capital, code FROM country ORDER BY code;
+--211 BRA
+SELECT id, name FROM city ORDER BY id;
+--BRAZILIA
 -- Clue #7: She knows we're on to her – her taxi dropped her off at the 
 -- international airport, and she beat us tothe boarding gates. We have one 
 -- chance to catch her, we just have to know where she's heading and beat her 
@@ -65,4 +71,6 @@
 -- info, and we'll be sure to meet her at the gates with bells on.
 
 -- TODO: Write SQL query here
+SELECT id,, population, name FROM city ORDER by population, name;
 
+--SANTA MONICA
